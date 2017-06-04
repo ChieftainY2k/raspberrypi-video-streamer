@@ -9,4 +9,7 @@ WORKDIR /root/
 COPY stream-youtube.sh .
 RUN chmod u+x stream-youtube.sh
 
-ENTRYPOINT ["/bin/bash"]
+#ENTRYPOINT /bin/bash
+#CMD /bin/bash
+
+ENTRYPOINT ["./stream-youtube.sh"]

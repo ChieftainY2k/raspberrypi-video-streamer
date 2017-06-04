@@ -16,3 +16,16 @@ $sudo apt-get install python3-pip
 <pre>
 $ sudo pip3 install docker-compose
 </pre>
+
+* Build docker image
+<pre>
+$ cd docker
+$ docker build -t streamer .
+</pre>
+ 
+* Run streamer
+
+<pre>
+$ docker run -e STREAMER_YOUTUBE_SECRET="xxxxxxxxx" -e STREAMER_BITRATE=500000 --name camera streamer
+</pre>
+
