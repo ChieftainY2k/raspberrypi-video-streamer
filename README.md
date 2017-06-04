@@ -43,4 +43,3 @@ $  docker start camera
 $  docker attach camera
 </pre>
 
-
