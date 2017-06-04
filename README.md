@@ -4,6 +4,8 @@ This project is inspired and based on the alexellis/raspberrypi-youtube-streamin
 * Install Jessie image and configure it so that it can connect to the internet
 * Make sure camera module is enabled
 
+* Get your stream secret key (STREAM_YOUTUBE_SECRET) from https://www.youtube.com/live_dashboard
+
 * Install docker
 <pre>
 $ curl -sSL get.docker.com | sh
@@ -16,7 +18,7 @@ $ reboot
 $ docker build -t streamer ./docker 
 </pre>
  
-* Initiate and run streamer container for the first time
+* Initiate and run streamer container for the first time (replace xxxxxxx with your secret key)
 <pre>
 $ docker run --detach --restart unless-stopped --privileged -e STREAM_YOUTUBE_SECRET="xxxxxxxxxxxxxxxx" -e STREAM_BITRATE=500000 -e STREAM_FPS=30 -e STREAM_WIDTH=800 -e STREAM_HEIGHT=600 --name camera streamer
 </pre>
