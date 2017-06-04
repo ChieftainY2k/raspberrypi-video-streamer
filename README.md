@@ -1,4 +1,4 @@
-* Get Raspberry PI, cnfigure it so that it can connect to the internet.
+* Get Raspberry PI, configure it so that it can connect to the internet.
 
 * Install docker
 <pre>
