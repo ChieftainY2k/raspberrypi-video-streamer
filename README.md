@@ -1,3 +1,5 @@
+This project is inspired and based on the alexellis/raspberrypi-youtube-streaming code and docker image.
+
 * Get Raspberry PI
 * Install Jessie image and configure it so that it can connect to the internet
 * Make sure camera module is enabled
