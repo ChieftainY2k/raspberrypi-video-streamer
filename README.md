@@ -7,35 +7,40 @@ $ sudo usermod pi -aG docker
 $ reboot
 </pre>
         
-* Build docker image
+* Build docker image for the "camera" container
 <pre>
-$ cd docker
-$ docker build -t streamer .
+$ docker build -t streamer ./docker 
 </pre>
  
-* Initiate and run streamer for the first time
+* Initiate and run streamer container for the first time
 <pre>
-$ docker run --privileged -e STREAM_YOUTUBE_SECRET="xxxxxxxxxxxxxxxx" -e STREAM_BITRATE=500000 -e STREAM_FPS=30 -e STREAM_WIDTH=800 -e STREAM_HEIGHT=600 --name camera streamer
+$ docker run --detach --restart unless-stopped --privileged -e STREAM_YOUTUBE_SECRET="xxxxxxxxxxxxxxxx" -e STREAM_BITRATE=500000 -e STREAM_FPS=30 -e STREAM_WIDTH=800 -e STREAM_HEIGHT=600 --name camera streamer
 </pre>
+Note: this container will restart automatically on reboot or failure unless you stop it with the "docker stop" command. 
 
-* Stop streamer (may take a while)
+* Stop the stream (may take a while)
 <pre>
 $ docker stop camera  
 </pre>
 
-* Start streamer again
+* Start the stream again
 <pre>
 $ docker start camera
 </pre>
 
-* Attach to streamer console
+* Attach to container console
 <pre>
 $ docker attach camera
 </pre>
 
-* Kill streamer process and remove container
+* Kill stream process and remove container
 <pre>
 $ docker rm -f camera
+</pre>
+
+* Display container logs
+<pre>
+$ docker logs camera
 </pre>
 
 * (optional) Install python PIP
