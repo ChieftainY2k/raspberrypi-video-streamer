@@ -26,6 +26,8 @@ $ docker run --detach --restart unless-stopped --privileged -e STREAM_YOUTUBE_SE
 </pre>
 Note: stream container will restart automatically on reboot or failure unless you stop it with the "docker stop" command. 
 
+* Go to https://www.youtube.com/live_dashboard and chech if your stream is live
+
 * Stop the streamer container (may take a while)
 <pre>
 $ docker stop camera  
@@ -46,7 +48,7 @@ $ docker attach camera
 $ docker rm -f camera
 </pre>
 
-* Display container logs
+* Show container logs
 <pre>
 $ docker logs camera
 </pre>
