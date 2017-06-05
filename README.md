@@ -1,5 +1,7 @@
 This project is inspired and based on the alexellis/raspberrypi-youtube-streaming code and docker image.
 
+The app was tested against Raspberry Pi A and Raspberry Pi 2 
+
 * Get Raspberry PI
 * Install Jessie image and configure it so that it can connect to the internet
 * Make sure camera module is enabled
@@ -18,18 +20,18 @@ $ reboot
 $ docker build -t streamer ./docker 
 </pre>
  
-* Initiate and run streamer container for the first time (replace xxxxxxx with your secret key)
+* Initiate and run streamer container (replace xxxxxxx with your secret key)
 <pre>
 $ docker run --detach --restart unless-stopped --privileged -e STREAM_YOUTUBE_SECRET="xxxxxxxxxxxxxxxx" -e STREAM_BITRATE=500000 -e STREAM_FPS=30 -e STREAM_WIDTH=800 -e STREAM_HEIGHT=600 --name camera streamer
 </pre>
-Note: stream will restart automatically on reboot or failure unless you stop it with the "docker stop" command. 
+Note: stream container will restart automatically on reboot or failure unless you stop it with the "docker stop" command. 
 
-* Stop the stream (may take a while)
+* Stop the streamer container (may take a while)
 <pre>
 $ docker stop camera  
 </pre>
 
-* Start the stream again
+* Start the stopped streamer container
 <pre>
 $ docker start camera
 </pre>
