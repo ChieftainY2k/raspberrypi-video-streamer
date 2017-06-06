@@ -4,7 +4,8 @@ The app was tested against Raspberry Pi A and Raspberry Pi 2
 
 * Get Raspberry PI
 * Install Jessie image and configure it so that it can connect to the internet
-* Make sure camera module is enabled
+* Update firmware (rpi-update) and software (apt-get update && at-get upgrade)
+* Make sure camera module is enabled (raspi-config)
 
 * Get your stream secret key (STREAM_YOUTUBE_SECRET) from https://www.youtube.com/live_dashboard
 
@@ -15,6 +16,16 @@ $ sudo usermod pi -aG docker
 $ reboot
 </pre>
         
+* Clone this repository
+<pre>
+$ git clone https://github.com/ChieftainY2k/raspberrypi-video-streamer 
+</pre>
+ 
+* Goto repo directory
+<pre>
+$ cd raspberrypi-video-streamer
+</pre>
+ 
 * Build docker image for the "camera" container
 <pre>
 $ docker build -t streamer ./docker 
