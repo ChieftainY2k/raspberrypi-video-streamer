@@ -34,7 +34,7 @@ echo Stream width = $STREAM_WIDTH
 echo Stream height = $STREAM_HEIGHT
 echo ----------------------------------------------------------------------
 
-raspivid -o - -t 0 -w $STREAM_WIDTH -h $STREAM_HEIGHT -fps $STREAM_FPS -b $STREAM_BITRATE -g 40 | ffmpeg \
+raspivid -o - -t 0 -w $STREAM_WIDTH -h $STREAM_HEIGHT -fps $STREAM_FPS -b $STREAM_BITRATE -g 40 --nopreview  | ffmpeg \
 	-re -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i /dev/zero \
 	-f h264 -i pipe:0 -c:v copy -c:a aac -ab 8k -g 40 -strict experimental \
 	-f flv -r $STREAM_FPS rtmp://a.rtmp.youtube.com/live2/$STREAM_YOUTUBE_SECRET
