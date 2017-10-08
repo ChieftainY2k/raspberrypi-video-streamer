@@ -27,7 +27,6 @@ fi
 
 echo ----------------------------------------------------------------------
 echo Initiating stream with following params:
-echo Youtube key = $STREAM_YOUTUBE_SECRET
 echo Stream bitrate = $STREAM_BITRATE
 echo Stream FPS = $STREAM_FPS
 echo Stream width = $STREAM_WIDTH
